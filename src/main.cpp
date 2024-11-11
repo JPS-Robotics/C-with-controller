@@ -155,6 +155,16 @@ int whenStarted() {
 
 // "when autonomous" hat block
 int onauton_autonomous() {
+    bot_drivetrain.setDriveVelocity(10, percent);
+    bot_drivetrain.turnToHeading(-45, degrees); // Uses the inertia sensor to accuratly turn - Based on starting position of rebot
+    bot_drivetrain.driveFor(forward, 40, inches);
+    bot_drivetrain.setTurnVelocity(5, percent); // Turn to heading doesn't support precent so set here  (can cacluate based on RPMs and set in each command as desired)
+    bot_drivetrain.turnToHeading(-90, degrees);  // Uses the inertia sensor to accuratly turn - Based on starting position of rebot
+    bot_drivetrain.driveFor(reverse, 10, inches);
+    bot_drivetrain.turnToHeading(-180, degrees);
+    bot_drivetrain.driveFor(reverse, 48, inches);
+    bot_drivetrain.turnToHeading(-90, degrees);
+    bot_drivetrain.driveFor(forward, 48, inches);
   return 0;
 }
 
